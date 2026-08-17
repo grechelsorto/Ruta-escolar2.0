@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ruta Escolar — Lista de Asistencia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="clip"></div>
+
+<header class="board-header">
+  <div class="header-inner">
+    <div class="brand">
+      <span class="brand-mark">🚌</span>
+      <div>
+        <h1>Ruta Escolar</h1>
+        <p class="subtitle">Lista de asistencia diaria</p>
+      </div>
+    </div>
+    <div class="date-box" id="dateBox"></div>
+  </div>
+</header>
+
+<div class="header-spacer"></div>
+
+<main class="wrap">
+
+  <section class="stats stats-margin">
+    <div class="stat stat-presente">
+      <span class="stat-num" id="countPresente">0</span>
+      <span class="stat-label">Presentes</span>
+    </div>
+    <div class="stat stat-excusa">
+      <span class="stat-num" id="countExcusa">0</span>
+      <span class="stat-label">Excusas</span>
+    </div>
+    <div class="stat stat-falta">
+      <span class="stat-num" id="countFalta">0</span>
+      <span class="stat-label">Faltas</span>
+    </div>
+    <div class="stat stat-pendiente">
+      <span class="stat-num" id="countPendiente">0</span>
+      <span class="stat-label">Sin marcar</span>
+    </div>
+  </section>
+
+  <section class="roster-card">
+    <div class="roster-head">
+      <h2>Alumnos de la ruta</h2>
+      <button class="btn-add" id="openFormBtn">+ Agregar alumno</button>
+    </div>
+
+    <ul class="roster-list" id="rosterList">
+      <!-- filas generadas por JS -->
+    </ul>
+
+    <p class="empty-msg" id="emptyMsg">Todavía no hay alumnos en esta ruta. Agrega el primero.</p>
+  </section>
+
+</main>
+
+<!-- Modal para agregar alumno -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <div class="modal-head">
+      <h3>Nuevo alumno</h3>
+      <button class="modal-close" id="closeFormBtn">&times;</button>
+    </div>
+    <form id="studentForm">
+      <label>Nombre del alumno
+        <input type="text" id="fName" required placeholder="Ej. Sofía Martínez">
+      </label>
+      <div class="form-row">
+        <label>Grado
+          <input type="text" id="fGrade" required placeholder="Ej. 3.° grado">
+        </label>
+        <label>Hora de recogida
+          <input type="time" id="fTime" required>
+        </label>
+      </div>
+      <label>Instituto/Escuela/Colegio
+        <input type="text" id="fSchool" required placeholder="Ej. Colegio Rubén Darío">
+      </label>
+      <label>Dirección de la Escuela o Colegio
+        <input type="text" id="fSchoolAddress" required placeholder="Colonia, calle, referencia">
+      </label>
+      <label>Dirección del alumno
+        <input type="text" id="fAddress" required placeholder="Colonia, calle, referencia">
+      </label>
+      <label>Maestra encargada
+        <input type="text" id="fTeacher" required placeholder="Nombre de la maestra">
+      </label>
+      <label>Teléfono del padre/madre
+        <input type="tel" id="fPhone" required placeholder="Ej. 9999-9999">
+      </label>
+      <button type="submit" class="btn-save">Guardar alumno</button>
+    </form>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
